@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'http://repo.jenkins-ci.org/releases/'
+        }
+    }
+    dependencies {
+        classpath 'org.jenkins-ci.tools:gradle-jpi-plugin:0.12.2'
+    }
+}
+
+apply plugin: 'org.jenkins-ci.jpi'
+
+group = "org.jenkins-ci.plugins"
+version = "0.0.1-SNAPSHOT"    // Or whatever your version is.
+description = "Publishes a cucumber report to slack"
+
+jenkinsPlugin {
+    coreVersion = '1.420'                                               // Version of Jenkins core this plugin depends on.
+    displayName = 'Slack Cucumber Report Publisher'                     // Human-readable name of plugin.
+    url = 'http://wiki.jenkins-ci.org/display/JENKINS/Slack+Cucumber+Report+Plugin' // URL for plugin on Jenkins wiki or elsewhere.
+    gitHubUrl = 'https://github.com/jenkinsci/some-plugin'              // Plugin URL on GitHub. Optional.
+    shortName = 'slack-cucumber-report'                                 // Plugin ID, defaults to the project name without trailing '-plugin'.
+
+    // The developers section is optional, and corresponds to the POM developers section.
+    developers {
+        developer {
+            id 'gevans'
+            name 'Gareth Evans'
+            email 'gareth@bryncynfelin.co.uk'
+        }
+    }
+}
